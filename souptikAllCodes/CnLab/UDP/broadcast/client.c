@@ -16,9 +16,9 @@ void error(char *msg)
 }
 
 int main()
-{
-    printf("Client started\n");
-
+{   char message [10];
+    printf("Client started , Enter client number\n");
+    scanf("%s", message);
     int sockfd;
     struct sockaddr_in broadcast_addr;
     char buffer[BUF_SIZE];
@@ -35,7 +35,7 @@ int main()
     broadcast_addr.sin_port = htons(BROADCAST_PORT);
     broadcast_addr.sin_addr.s_addr = htonl(INADDR_BROADCAST);
 
-    sprintf(buffer, "Broadcast message from client");
+    sprintf(buffer, message);
 
     n = sendto(sockfd, buffer, strlen(buffer), 0, (struct sockaddr *)&broadcast_addr, sizeof(broadcast_addr));
     if (n < 0)
