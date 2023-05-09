@@ -5,7 +5,6 @@
 #include <arpa/inet.h>
 int main()
 {
-    printf("Kaninika Datta\n");
     char *ip = "127.0.0.1";
     int port = 5566;
     int server_sock, client_sock;
